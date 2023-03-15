@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { capitalCase } from 'change-case';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
@@ -66,7 +67,6 @@ export default function Login() {
   const smUp = useResponsive('up', 'sm');
 
   const mdUp = useResponsive('up', 'md');
-
   return (
     <Page title="Login">
       <RootStyle>

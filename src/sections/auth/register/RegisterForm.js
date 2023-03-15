@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // form
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -16,6 +16,16 @@ import { FormProvider, RHFTextField } from '../../../components/hook-form';
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/login`)
+      .then((response) => console.log(response))
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, [])
+
+
   const { register } = useAuth();
 
   const isMountedRef = useIsMountedRef();

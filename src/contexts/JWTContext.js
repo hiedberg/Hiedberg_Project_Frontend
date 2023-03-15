@@ -76,7 +76,7 @@ function AuthProvider({ children }) {
         if (accessToken && isValidToken(accessToken)) {
           setSession(accessToken);
 
-          const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/auth/profile`);
+          const response = await axios.get('http://localhost:3000/api/auth');
           const { user } = response.data;
 
           dispatch({
