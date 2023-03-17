@@ -57,6 +57,22 @@ export default function RegisterForm() {
     formState: { errors, isSubmitting },
   } = methods;
 
+  const handleApiError = (error) => {
+    if (error.response && error.response.status === 400) {
+      return 'Email Already Taken';
+    }
+    if (error.response && error.response.status === 401) {
+      return 'Invalid Credentials';
+    }
+    if (error.response && error.response.status === 404) {
+      return 'Oops! The requested resource could not be found. Please try again later.';
+    }
+    if (error.response && error.response.status === 500) {
+      return 'Oops! Something went wrong on the server. Please try again later.';
+    }
+    return 'An error occurred. Please try again later.';
+  };
+
   const onSubmit = async (data) => {
     try {
       await register(data.email, data.password, data.username);
@@ -64,7 +80,7 @@ export default function RegisterForm() {
       console.error(error);
       reset();
       if (isMountedRef.current) {
-        setError('afterSubmit', { ...error, message: error.message });
+        setError('afterSubmit', { ...error, message: handleApiError(error)});
       }
     }
   };
