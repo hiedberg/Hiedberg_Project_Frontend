@@ -1,5 +1,6 @@
+
 import * as Yup from 'yup';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // form
 import { useForm } from 'react-hook-form';
@@ -48,20 +49,30 @@ export default function LoginForm() {
     formState: { errors, isSubmitting },
   } = methods;
 
+
+  const handleApiError = (error) => {
+    if (error.response && error.response.status === 401) {
+      return 'Invalid Credentials';
+    }
+    if (error.response && error.response.status === 404) {
+      return 'Oops! The requested resource could not be found. Please try again later.';
+    }
+    if (error.response && error.response.status === 500) {
+      return 'Oops! Something went wrong on the server. Please try again later.';
+    }
+    return 'An error occurred. Please try again later.';
+  };
+  
   const onSubmit = async (data) => {
     try {
       await login(data.email, data.password);
     } catch (error) {
-      console.error(error);
       reset();
       if (isMountedRef.current) {
-        setError('afterSubmit', { ...error, message: error.message });
+        setError('afterSubmit', { ...error, message: handleApiError(error) });
       }
     }
   };
-
-  
-
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
@@ -99,3 +110,4 @@ export default function LoginForm() {
     </FormProvider>
   );
 }
+
