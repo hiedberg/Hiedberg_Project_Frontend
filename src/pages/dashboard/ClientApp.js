@@ -32,10 +32,10 @@ export default function GeneralApp() {
     <Page title="General: My Dashboard">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={12}>
             <AppWelcome displayName={user?.username} />
           </Grid>
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <Stack spacing={3}>
               <AppWidget title="Total Used Hours" total={389} icon={'eva:person-fill'} chartData={48} />
               <AppWidget
@@ -46,12 +46,12 @@ export default function GeneralApp() {
                 chartData={75}
               />
             </Stack>
-          </Grid>
+          </Grid> */}
           {/* <Grid item xs={12} md={4}>
             <AppFeatured />
           </Grid> */}
 
-          <Grid item xs={12} md={4}>
+          {/* <Grid item xs={12} md={4}>
             <AppWidgetSummary
               title="Total Active Tasks"
               percent={2.6}
@@ -59,7 +59,7 @@ export default function GeneralApp() {
               chartColor={theme.palette.primary.main}
               chartData={[5, 18, 12, 51, 68, 11, 39, 37, 27, 20]}
             />
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12} md={4}>
             <AppWidgetSummary
