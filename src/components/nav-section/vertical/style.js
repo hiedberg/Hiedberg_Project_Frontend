@@ -16,13 +16,13 @@ export const ListItemStyle = styled(ListItemButton, {
   paddingLeft: theme.spacing(2),
   paddingRight: theme.spacing(1.5),
   marginBottom: theme.spacing(0.5),
-  color: theme.palette.text.secondary,
+  color: theme.palette.common.white,
   borderRadius: theme.shape.borderRadius,
   // activeRoot
   ...(activeRoot && {
     ...theme.typography.subtitle2,
-    color: theme.palette.primary.main,
-    backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
+    color: theme.palette.common.white,
+    backgroundColor: alpha(theme.palette.common.white, 0.4),
   }),
   // activeSub
   ...(activeSub && {

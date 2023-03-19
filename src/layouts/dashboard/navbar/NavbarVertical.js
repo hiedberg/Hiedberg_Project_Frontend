@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -5,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import { Box, Stack, Drawer } from '@mui/material';
 // hooks
+import useAuth from 'src/hooks/useAuth';
 import useResponsive from '../../../hooks/useResponsive';
 import useCollapseDrawer from '../../../hooks/useCollapseDrawer';
 // utils
@@ -40,6 +43,9 @@ NavbarVertical.propTypes = {
 };
 
 export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
+  const { user } = useAuth()
+  const desiredSubheader = user?.role
+  const desiredConfigArray = navConfig.filter(config => config.subheader === desiredSubheader);
   const theme = useTheme();
 
   const { pathname } = useLocation();
@@ -81,14 +87,14 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
           )}
         </Stack>
 
-        <NavbarAccount isCollapse={isCollapse} />
+        {/* <NavbarAccount isCollapse={isCollapse} /> */}
       </Stack>
 
-      <NavSectionVertical navConfig={navConfig} isCollapse={isCollapse} />
+      <NavSectionVertical navConfig={desiredConfigArray} isCollapse={isCollapse} />
 
       <Box sx={{ flexGrow: 1 }} />
 
-      {!isCollapse && <NavbarDocs />}
+      {/* {!isCollapse && <NavbarDocs />} */}
     </Scrollbar>
   );
 
@@ -118,7 +124,7 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
           PaperProps={{
             sx: {
               width: NAVBAR.DASHBOARD_WIDTH,
-              borderRightStyle: 'dashed',
+              border: 'none',              
               bgcolor: 'background.default',
               transition: (theme) =>
                 theme.transitions.create('width', {

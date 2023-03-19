@@ -13,7 +13,7 @@ export const ListSubheaderStyle = styled((props) => <ListSubheader disableSticky
     paddingTop: theme.spacing(3),
     paddingLeft: theme.spacing(2),
     paddingBottom: theme.spacing(1),
-    color: theme.palette.text.primary,
+    color: theme.palette.background.default,
     transition: theme.transitions.create('opacity', {
       duration: theme.transitions.duration.shorter,
     }),
@@ -39,7 +39,7 @@ export default function NavSectionVertical({ navConfig, isCollapse = false, ...o
               }),
             }}
           >
-            {group.subheader}
+            {/* {group.subheader} */}
           </ListSubheaderStyle>
 
           {group.items.map((list) => (

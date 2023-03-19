@@ -82,9 +82,9 @@ function MegaMenuItem({ parent }) {
             <Masonry columns={3} spacing={2}>
               {children.map((list) => (
                 <Stack key={list.subheader} spacing={1.25} sx={{ mb: 2.5 }}>
-                  <Typography variant="subtitle1" sx={{ fontWeight: 'fontWeightBold' }} noWrap>
+                  {/* <Typography variant="subtitle1" sx={{ fontWeight: 'fontWeightBold' }} noWrap>
                     {list.subheader}
-                  </Typography>
+                  </Typography> */}
                   {list.items.map((link) => (
                     <Link
                       noWrap

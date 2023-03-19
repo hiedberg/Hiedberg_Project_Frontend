@@ -75,8 +75,11 @@ function AuthProvider({ children }) {
 
         if (accessToken && isValidToken(accessToken)) {
           setSession(accessToken);
-
-          const response = await axios.get('http://localhost:3000/api/auth');
+          const response = await axios.get('http://localhost:5000/v1/users/getUsers',{
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+          }
+          });
           const { user } = response.data;
 
           dispatch({

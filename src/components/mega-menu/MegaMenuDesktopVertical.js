@@ -83,7 +83,7 @@ function MegaMenuItem({ parent }) {
               {children.map((list) => (
                 <Stack key={list.subheader} spacing={1.25} sx={{ mb: 2.5 }}>
                   <Typography variant="subtitle1" noWrap>
-                    {list.subheader}
+                    {/* {list.subheader} */}
                   </Typography>
                   {list.items.map((link) => (
                     <Link

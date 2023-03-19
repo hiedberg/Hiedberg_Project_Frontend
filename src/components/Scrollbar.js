@@ -10,13 +10,15 @@ const RootStyle = styled('div')(() => ({
   flexGrow: 1,
   height: '100%',
   overflow: 'hidden',
+  background: 'black',
 }));
 
 const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
+  color: 'white',
   maxHeight: '100%',
   '& .simplebar-scrollbar': {
     '&:before': {
-      backgroundColor: alpha(theme.palette.grey[600], 0.48),
+      backgroundColor: alpha(theme.palette.grey[0],0.9),
     },
     '&.simplebar-visible:before': {
       opacity: 1,
