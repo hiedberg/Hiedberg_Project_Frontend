@@ -1,5 +1,5 @@
 // routes
-import { PATH_DASHBOARD, PATH_PAGE } from '../../../routes/paths';
+import { PATH_AUTH, PATH_DASHBOARD, PATH_PAGE } from '../../../routes/paths';
 // components
 import Label from '../../../components/Label';
 import SvgIconStyle from '../../../components/SvgIconStyle';
@@ -22,6 +22,8 @@ const ICONS = {
   ecommerce: getIcon('ic_ecommerce'),
   analytics: getIcon('ic_analytics'),
   dashboard: getIcon('ic_dashboard'),
+  settings: getIcon('ic_settings'),
+  logout: getIcon('ic_logout'),
 };
 
 const navConfig = [
@@ -31,13 +33,13 @@ const navConfig = [
     subheader: 'client',
     items: [
       { title: 'Client Dashboard', path: PATH_DASHBOARD.general.clientApp, icon: ICONS.dashboard },
-      { title: 'Tasks', path: PATH_DASHBOARD.clientTask.root, icon: ICONS.calendar },
-      { title: 'Messages', path: PATH_DASHBOARD.clientChat.root, icon: ICONS.chat },
-      { title: 'Subscriptions', path: PATH_DASHBOARD.subscription.shop, icon: ICONS.cart },
-      { title: 'Invoices', path: PATH_DASHBOARD.clientInvoice.root, icon: ICONS.invoice },
       { title: 'Support', path: PATH_DASHBOARD.clientfaqs, icon: ICONS.chat },
-      { title: 'Account', path: PATH_DASHBOARD.clintUser.account, icon: ICONS.user },
-      // { title: 'e-commerce', path: PATH_DASHBOARD.general.ecommerce, icon: ICONS.ecommerce },
+      { title: 'Settings', path: PATH_DASHBOARD.clintUser.account, icon: ICONS.settings },
+      { title: 'Billing', path: PATH_DASHBOARD.clientInvoice.root, icon: ICONS.invoice },
+      { title: 'Subscriptions', path: PATH_DASHBOARD.subscription.shop, icon: ICONS.booking },
+      { title: 'Messages', path: PATH_DASHBOARD.clientChat.root, icon: ICONS.chat },
+      { title: 'Tasks', path: PATH_DASHBOARD.clientTask.root, icon: ICONS.calendar },
+      { title: 'Logout', path: PATH_AUTH.login, icon: ICONS.logout },
       // { title: 'analytics', path: PATH_DASHBOARD.general.analytics, icon: ICONS.analytics },
       // { title: 'banking', path: PATH_DASHBOARD.general.banking, icon: ICONS.banking },
       // { title: 'booking', path: PATH_DASHBOARD.general.booking, icon: ICONS.booking },

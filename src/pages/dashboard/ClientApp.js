@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Container, Grid, Stack } from '@mui/material';
@@ -61,7 +62,7 @@ export default function GeneralApp() {
             />
           </Grid> */}
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={5}>
             <AppWidgetSummary
               title="Total Completed Tasks"
               percent={0.2}
@@ -71,7 +72,7 @@ export default function GeneralApp() {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={5}>
             <AppWidgetSummary
               title="Total Pending Tasks"
               percent={-0.1}
@@ -80,15 +81,15 @@ export default function GeneralApp() {
               chartData={[8, 9, 31, 8, 16, 37, 8, 33, 46, 31]}
             />
           </Grid>
+          <Grid item xs={12} md={6} lg={6}>
+            <AppAreaInstalled />
+          </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentDownload />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
-            <AppAreaInstalled />
-          </Grid>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={6}>
             <BookingBookedRoom />
           </Grid>
           {/* <Grid item xs={12} lg={8}>
@@ -106,11 +107,11 @@ export default function GeneralApp() {
           <Grid item xs={12} md={6} lg={4}>
             <AppTopAuthors />
           </Grid> */}
-          <Grid item xs={12} md={6} lg={4}>
+          <Grid item xs={12} md={6} lg={6}>
             <AnalyticsOrderTimeline />
           </Grid>
         </Grid>
       </Container>
-    </Page>
+    </Page >
   );
 }

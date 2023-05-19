@@ -1,3 +1,5 @@
+import axios from 'axios';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // @mui
 import { Card, Typography, CardHeader, CardContent } from '@mui/material';
@@ -6,10 +8,31 @@ import { Timeline, TimelineDot, TimelineItem, TimelineContent, TimelineSeparator
 import { fDateTime } from '../../../../utils/formatTime';
 // _mock_
 import { _analyticOrderTimeline } from '../../../../_mock';
-
+import { isValidToken, setSession } from '../../../../utils/jwt';
 // ----------------------------------------------------------------------
 
 export default function AnalyticsOrderTimeline() {
+
+  useEffect(() => {
+    const initialize = async () => {
+      const accessToken = window.localStorage.getItem('accessToken');
+      fetch('http://localhost:5000/v1/users/getFaqs', {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
+    initialize();
+  }, []);
+
   return (
     <Card
       sx={{
@@ -18,7 +41,7 @@ export default function AnalyticsOrderTimeline() {
         },
       }}
     >
-      <CardHeader title="Order Timeline" />
+      <CardHeader title="Pending Tasks" />
       <CardContent>
         <Timeline>
           {_analyticOrderTimeline.map((item, index) => (
